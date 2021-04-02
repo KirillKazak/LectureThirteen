@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,5 +28,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        KirillKa kirill = new KirillKa("Kirill", 26);
+        KirillKa kirillKaClone = null;
+        try {
+            kirillKaClone = (KirillKa) kirill.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        Log.d("DONTCLON", String.valueOf(kirill));
+        Log.d("CLONE", String.valueOf(kirillKaClone));
+        Log.d("EQUALS", String.valueOf(kirill.equals(kirillKaClone)));
+        Log.d("kirillHashCode", String.valueOf(kirill.hashCode()));
+        Log.d("kirillKaCloneHashCode", String.valueOf(kirillKaClone.hashCode()));
+
     }
 }
